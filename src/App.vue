@@ -22,10 +22,11 @@ import HelloWorld from './components/HelloWorld.vue'
   <RouterView />
 </template>
 
-<style scoped>
+<style scoped lang="less">
 .text-div {
   width: 200px;
   height: 40px;
+  background-color: red;
 }
 
 header {
