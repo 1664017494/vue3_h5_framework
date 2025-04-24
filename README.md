@@ -1,6 +1,19 @@
 # vue3_h5_framwork
 
-This template should help get you started developing with Vue 3 in Vite.
+一个基于 vue3、vant搭建的移动端H5脚手架，用于快速开发项目。让开发人员专注于业务开发
+
+## 功能实现
+
+- 页面
+  - 登陆（√）
+  - 首页（进行中）
+  - 设置页
+- 路由
+  - 路由权限（√）
+- 移动端特性
+  - meta标签（×）
+  - px转vw（√）
+  - 移动端适配（×）
 
 ## Recommended IDE Setup
 
