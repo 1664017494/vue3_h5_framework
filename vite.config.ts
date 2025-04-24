@@ -8,7 +8,11 @@ import postcsspxtoviewport8plugin from 'postcss-px-to-viewport-8-plugin'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue(), vueJsx(), vueDevTools()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    // vueDevTools()
+  ],
   css: {
     postcss: {
       plugins: [

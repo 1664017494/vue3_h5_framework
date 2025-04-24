@@ -1,18 +1,21 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import Footer from './components/Footer.vue'
+import { useUserStore } from './stores/user'
+
+const { user } = useUserStore()
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <div class="view-area">
+    <RouterView />
+  </div>
 
-  <RouterView />
+  <Footer v-if="user.isLogin"></Footer>
 </template>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.view-area {
+  height: calc(100% - 50px);
+}
+</style>

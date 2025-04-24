@@ -5,6 +5,7 @@ export const useUserStore = defineStore('user', () => {
   const user = reactive({
     username: undefined,
     password: undefined,
+    isLogin: false,
   })
 
   const login = () => {
@@ -13,6 +14,7 @@ export const useUserStore = defineStore('user', () => {
     }
 
     if (user.username === '123' && user.password === '123456') {
+      user.isLogin = true
       return true
     }
 
