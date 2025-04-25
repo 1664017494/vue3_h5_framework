@@ -1,5 +1,5 @@
 <template>
-  <van-nav-bar title="个人信息" left-text="返回" left-arrow @click-left="back" />
+  <van-nav-bar title="修改信息" left-text="返回" left-arrow @click-left="back" />
   <van-form @submit="onSubmit">
     <van-cell-group inset>
       <van-field

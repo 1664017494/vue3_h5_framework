@@ -1,5 +1,5 @@
 <template>
-  <van-tabbar :route="true" v-if="user.isLogin && show">
+  <van-tabbar :route="true" v-if="user.isLogin && footer.show">
     <!-- <van-tabbar-item replace to="/home" icon="home-o">主页</van-tabbar-item>
     <van-tabbar-item replace to="/setting" icon="setting-o">设置</van-tabbar-item> -->
     <van-tabbar-item v-for="item in tabbarItemList" :key="item.to" v-bind="item">{{
@@ -9,13 +9,12 @@
 </template>
 
 <script setup lang="ts">
+import { useFooter } from '@/stores/footer'
 import { useUserStore } from '@/stores/user'
 import type { TabbarItemProps } from 'vant'
-import { computed, reactive } from 'vue'
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
+import { reactive } from 'vue'
 const { user } = useUserStore()
+const footer = useFooter()
 
 defineOptions({
   name: 'home-footer',
@@ -37,10 +36,6 @@ const tabbarItemList = reactive<TabbarItemProps[]>([
     name: '设置',
   },
 ])
-
-const whiteList = ['home', 'setting']
-
-const show = computed(() => typeof route.name === 'string' && whiteList.includes(route.name))
 </script>
 
 <style scoped lang="less">

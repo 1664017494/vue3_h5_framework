@@ -3,11 +3,14 @@ import { RouterView } from 'vue-router'
 import Footer from './components/Footer.vue'
 import { useConfig } from './stores/config'
 import { computed } from 'vue'
+import { useFooter } from './stores/footer'
 
 const config = useConfig()
+const { show } = useFooter()
 
 const styleObject = computed(() => ({
   backgroundColor: config.theme === 'dark' ? '#222' : undefined,
+  height: `calc(100% - ${show ? '50px' : '0px'})`,
 }))
 </script>
 
@@ -25,8 +28,5 @@ const styleObject = computed(() => ({
 .van-config-provider {
   width: 100%;
   height: 100%;
-}
-.view-area {
-  height: calc(100% - 50px);
 }
 </style>
