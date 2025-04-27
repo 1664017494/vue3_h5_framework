@@ -14,6 +14,7 @@
   - meta标签（×）
   - px转vw（√）
   - 移动端适配（×）
+- 状态持久化（√）
 
 ## Recommended IDE Setup
 
