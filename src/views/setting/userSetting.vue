@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useUserStore } from '@/stores/user'
+import useUserStore from '@/stores/modules/user'
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()

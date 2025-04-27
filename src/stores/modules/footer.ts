@@ -2,7 +2,7 @@ import { ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { useRoute } from 'vue-router'
 
-export const useFooter = defineStore('counter', () => {
+const useFooter = defineStore('counter', () => {
   const route = useRoute()
   const active = ref('home')
   const show = ref(false)
@@ -19,3 +19,5 @@ export const useFooter = defineStore('counter', () => {
 
   return { active, show, setActive }
 })
+
+export default useFooter

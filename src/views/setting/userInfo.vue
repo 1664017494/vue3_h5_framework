@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { useConfig } from '@/stores/config'
+import useConfig from '@/stores/modules/config'
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 

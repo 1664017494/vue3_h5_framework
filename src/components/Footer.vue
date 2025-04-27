@@ -9,8 +9,8 @@
 </template>
 
 <script setup lang="ts">
-import { useFooter } from '@/stores/footer'
-import { useUserStore } from '@/stores/user'
+import useFooter from '@/stores/modules/footer'
+import useUserStore from '@/stores/modules/user'
 import type { TabbarItemProps } from 'vant'
 import { reactive } from 'vue'
 const { user } = useUserStore()

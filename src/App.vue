@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import Footer from './components/Footer.vue'
-import { useConfig } from './stores/config'
+import useConfig from './stores/modules/config'
 import { computed } from 'vue'
-import { useFooter } from './stores/footer'
+import useFooter from './stores/modules/footer'
 
 const config = useConfig()
 const { show } = useFooter()

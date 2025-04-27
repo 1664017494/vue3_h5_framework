@@ -1,14 +1,23 @@
 <script setup lang="ts">
-import { useConfig } from '@/stores/config'
+import useConfig from '@/stores/modules/config'
 import { computed } from 'vue'
+import useUserStore from '@/stores/modules/user'
+import { useRouter } from 'vue-router'
 
 defineOptions({
   name: 'settingView',
 })
 
 const config = useConfig()
+const userStore = useUserStore()
+const router = useRouter()
 
 const isDark = computed(() => config.theme === 'dark')
+
+const logout = () => {
+  userStore.logout()
+  router.push('/login')
+}
 </script>
 
 <template>
@@ -33,5 +42,8 @@ const isDark = computed(() => config.theme === 'dark')
         <van-switch v-model="isDark" @change="config.toggleTheme" />
       </template>
     </van-cell>
+  </van-cell-group>
+  <van-cell-group inset>
+    <van-cell title="退出系统" @click="logout" />
   </van-cell-group>
 </template>
