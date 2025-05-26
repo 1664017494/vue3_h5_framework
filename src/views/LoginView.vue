@@ -1,13 +1,13 @@
 <template>
   <div class="bg-container">
-    <div class="login-area">
-      <van-form @submit="login">
+    <van-form @submit="login">
         <van-cell-group inset>
           <van-field
             v-model="userStore.user.username"
             name="username"
             label="用户名"
             placeholder="用户名"
+            clearable
             :rules="[
               { required: true, message: '请填写用户名' },
               { validator, message: '请输入正确内容' },
@@ -19,6 +19,7 @@
             name="password"
             label="密码"
             placeholder="密码"
+            clearable
             :rules="[{ required: true, message: '请填写密码' }]"
           />
         </van-cell-group>
@@ -26,7 +27,7 @@
           <van-button round block type="primary" native-type="submit"> 提交 </van-button>
         </div>
       </van-form>
-    </div>
+    <!-- <div class="login-area"></div> -->
   </div>
 </template>
 
@@ -51,8 +52,7 @@ const validator = (val: string) => /^[a-zA-Z0-9_-]{1,8}$$/.test(val)
 <style scoped lang="less">
 .bg-container {
   width: 100%;
-  height: 100%;
-  background-color: #fff;
+  height: 100% !important;
   display: flex;
   flex-direction: column;
   align-items: center;

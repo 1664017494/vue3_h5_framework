@@ -9,17 +9,19 @@ const useUserStore = defineStore(
       password: undefined | string
       isLogin: boolean
     }>({
-      username: undefined,
-      password: undefined,
+      username: 'admin',
+      password: '123456',
       isLogin: false,
     })
 
     const login = () => {
+      console.log("@@@");
+
       if (!user.username || !user.password) {
         return false
       }
 
-      if (user.username === '123' && user.password === '123456') {
+      if (user.username === 'admin' && user.password === '123456') {
         user.isLogin = true
         return true
       }

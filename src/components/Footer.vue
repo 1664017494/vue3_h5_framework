@@ -1,20 +1,14 @@
 <template>
-  <van-tabbar :route="true" v-if="user.isLogin && footer.show">
-    <!-- <van-tabbar-item replace to="/home" icon="home-o">主页</van-tabbar-item>
-    <van-tabbar-item replace to="/setting" icon="setting-o">设置</van-tabbar-item> -->
-    <van-tabbar-item v-for="item in tabbarItemList" :key="item.to" v-bind="item">{{
+  <van-tabbar :route="true">
+    <van-tabbar-item v-for="item in tabbarItemList" :key="item.name" v-bind="item">{{
       item.name
-    }}</van-tabbar-item>
+      }}</van-tabbar-item>
   </van-tabbar>
 </template>
 
 <script setup lang="ts">
-import useFooter from '@/stores/modules/footer'
-import useUserStore from '@/stores/modules/user'
 import type { TabbarItemProps } from 'vant'
 import { reactive } from 'vue'
-const { user } = useUserStore()
-const footer = useFooter()
 
 defineOptions({
   name: 'home-footer',
@@ -40,6 +34,7 @@ const tabbarItemList = reactive<TabbarItemProps[]>([
 
 <style scoped lang="less">
 .van-tabbar {
+  position: relative;
   box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
 }
 </style>
