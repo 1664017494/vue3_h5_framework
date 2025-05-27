@@ -21,7 +21,7 @@ const router = createRouter({
         },
         {
           path: '/setting',
-          name: 'setting',
+          name: 'settingView',
           component: () => import('../views/setting/index.vue'),
           meta: { keepAlive: true }
         },

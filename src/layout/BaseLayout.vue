@@ -2,7 +2,7 @@
   <div class="base-layout">
     <div class="view-area">
       <router-view v-slot="{ Component }">
-        <keep-alive :include="['setting']">
+        <keep-alive :include="(routeCacheStore.routeCaches as string[])">
           <component :is="Component" />
         </keep-alive>
       </router-view>
@@ -12,7 +12,10 @@
 </template>
 
 <script lang="ts" setup>
+import useRouteCacheStore from '@/stores/modules/routeCache';
 import Footer from '../components/Footer.vue'
+
+const routeCacheStore = useRouteCacheStore()
 
 </script>
 
