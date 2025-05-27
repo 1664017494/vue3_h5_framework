@@ -1,18 +1,17 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
+import { useDark, useToggle } from '@vueuse/core'
 
 const useConfigStore = defineStore(
   'config',
   () => {
-    const theme = ref<'dark' | 'light'>('light')
 
-    const toggleTheme = () => {
-      theme.value = theme.value === 'light' ? 'dark' : 'light'
-    }
+    const isDark = useDark()
+    const toggleDark = useToggle(isDark)
 
     return {
-      theme,
-      toggleTheme,
+      isDark,
+      toggleDark,
     }
   },
   { persist: true },

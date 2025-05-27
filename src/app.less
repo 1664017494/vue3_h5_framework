@@ -1,4 +1,4 @@
-html {
+html.light {
   background: var(--van-gray-1);
   font-size: var(--van-font-size-lg);
   color-scheme: light;
@@ -7,4 +7,10 @@ html {
 html.dark {
   background: #222;
   color-scheme: dark;
+}
+
+// 必须有 #app 的选择器 postcss-mobile-forever 才能生效
+#app {
+  margin: 0 auto;
+  font-weight: normal;
 }

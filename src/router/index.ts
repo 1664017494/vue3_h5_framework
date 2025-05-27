@@ -1,5 +1,6 @@
 import useUserStore from '@/stores/modules/user'
 import { createRouter, createWebHistory } from 'vue-router'
+import useRouteCacheStore from '@/stores/modules/routeCache'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,7 @@ const router = createRouter({
           path: '/setting',
           name: 'setting',
           component: () => import('../views/setting/index.vue'),
+          meta: { keepAlive: true }
         },
 
         {
@@ -48,23 +50,27 @@ const router = createRouter({
   ],
 })
 
-// router.beforeEach((to, from) => {
-//   const { user } = useUserStore()
+router.beforeEach((to, from) => {
+  const { user } = useUserStore()
+  const routeCacheStore = useRouteCacheStore()
 
-//   // 已登录禁止返回
-//   if (to.fullPath === '/login' && user.isLogin) {
-//     return false
-//   }
+  // 已登录禁止返回
+  if (to.fullPath === '/login' && user.isLogin) {
+    return false
+  }
 
-//   // 未登录跳到登录
-//   if (to.fullPath !== '/login' && !user.isLogin) {
-//     router.push('/login')
-//     return false
-//   }
+  // 未登录跳到登录
+  if (to.fullPath !== '/login' && !user.isLogin) {
+    router.push('/login')
+    router.clearRoutes()
+    return false
+  }
 
-//   // ...
-//   // 返回 false 以取消导航
-//   return true
-// })
+  routeCacheStore.addRoute(to)
+
+  // ...
+  // 返回 false 以取消导航
+  return true
+})
 
 export default router
