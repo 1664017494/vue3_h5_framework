@@ -43,7 +43,13 @@ const logout = () => {
       </template>
     </van-cell>
   </van-cell-group>
-  <van-cell-group inset>
+  <van-cell-group inset title=" ">
     <van-cell title="退出系统" @click="logout" />
   </van-cell-group>
 </template>
+
+<style lang="less">
+.van-nav-bar {
+  margin-bottom: 16px;
+}
+</style>
