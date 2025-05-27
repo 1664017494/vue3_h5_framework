@@ -25,5 +25,7 @@ import Footer from '../components/Footer.vue'
 
 .view-area {
   flex: 1;
+  min-height: 0;
+  overflow: auto;
 }
 </style>
