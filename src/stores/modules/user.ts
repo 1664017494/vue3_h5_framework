@@ -15,8 +15,6 @@ const useUserStore = defineStore(
     })
 
     const login = () => {
-      console.log("@@@");
-
       if (!user.username || !user.password) {
         return false
       }

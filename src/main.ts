@@ -9,10 +9,12 @@ import 'vant/lib/index.css'
 
 import "./app.less"
 
+import i18n from './utils/i18n'
+
 const app = createApp(App)
 
 app.use(pinia)
 app.use(router)
-app.use(Vant)
+app.use(Vant).use(i18n)
 
 app.mount('#app')

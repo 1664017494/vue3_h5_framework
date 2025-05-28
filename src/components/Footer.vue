@@ -2,34 +2,39 @@
   <van-tabbar :route="true">
     <van-tabbar-item v-for="item in tabbarItemList" :key="item.name" v-bind="item">{{
       item.name
-      }}</van-tabbar-item>
+    }}</van-tabbar-item>
   </van-tabbar>
 </template>
 
 <script setup lang="ts">
-import type { TabbarItemProps } from 'vant'
-import { reactive } from 'vue'
+// import type { TabbarItemProps } from 'vant'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 defineOptions({
   name: 'home-footer',
 })
 
-const tabbarItemList = reactive<TabbarItemProps[]>([
-  {
-    dot: false,
-    replace: true,
-    to: '/home',
-    icon: 'home-o',
-    name: '主页',
-  },
-  {
-    dot: false,
-    replace: true,
-    to: '/setting',
-    icon: 'setting-o',
-    name: '设置',
-  },
-])
+const { t } = useI18n()
+
+const tabbarItemList = computed(() => {
+  return [
+    {
+      dot: false,
+      replace: true,
+      to: '/home',
+      icon: 'home-o',
+      name: t('common.home'),
+    },
+    {
+      dot: false,
+      replace: true,
+      to: '/setting',
+      icon: 'setting-o',
+      name: t('common.setting'),
+    },
+  ]
+})
 </script>
 
 <style scoped lang="less">

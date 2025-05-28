@@ -66,9 +66,6 @@ router.beforeEach((to, from) => {
     return false
   }
 
-  console.log("@@@", to);
-
-
   routeCacheStore.addRoute(to)
 
   // ...
