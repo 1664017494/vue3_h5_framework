@@ -1,32 +1,18 @@
 <template>
   <div class="bg-container">
     <van-form @submit="login">
-        <van-cell-group inset>
-          <van-field
-            v-model="userStore.user.username"
-            name="username"
-            label="用户名"
-            placeholder="用户名"
-            clearable
-            :rules="[
-              { required: true, message: '请填写用户名' },
-              { validator, message: '请输入正确内容' },
-            ]"
-          />
-          <van-field
-            v-model="userStore.user.password"
-            type="password"
-            name="password"
-            label="密码"
-            placeholder="密码"
-            clearable
-            :rules="[{ required: true, message: '请填写密码' }]"
-          />
-        </van-cell-group>
-        <div style="margin: 16px">
-          <van-button round block type="primary" native-type="submit"> 提交 </van-button>
-        </div>
-      </van-form>
+      <van-cell-group inset>
+        <van-field v-model="userStore.user.username" name="username" label="用户名" placeholder="用户名" clearable :rules="[
+          { required: true, message: '请填写用户名' },
+          { validator, message: '请输入正确内容' },
+        ]" />
+        <van-field v-model="userStore.user.password" type="password" name="password" label="密码" placeholder="密码"
+          clearable :rules="[{ required: true, message: '请填写密码' }]" />
+      </van-cell-group>
+      <div style="margin: 16px">
+        <van-button round block type="primary" native-type="submit"> 提交 </van-button>
+      </div>
+    </van-form>
     <!-- <div class="login-area"></div> -->
   </div>
 </template>
@@ -51,7 +37,7 @@ const validator = (val: string) => /^[a-zA-Z0-9_-]{1,8}$$/.test(val)
 
 <style scoped lang="less">
 .bg-container {
-  width: 100%;
+  width: 320px;
   height: 100% !important;
   display: flex;
   flex-direction: column;
